@@ -9,11 +9,11 @@ function FormQuestion() {
 
     const createQuestion = [
         { name: "enunciado", label: "Enunciado", required: true },
-        { name: "1", label: "Alternativa 01", required: true },
-        { name: "2", label: "Alternativa 02", required: true },
-        { name: "3", label: "Alternativa 03" },
-        { name: "4", label: "Alternativa 04" },
-        { name: "5", label: "Alternativa 05" }
+        { name: "a1", label: "Alternativa 01", required: true },
+        { name: "a2", label: "Alternativa 02", required: true },
+        { name: "a3", label: "Alternativa 03" },
+        { name: "a4", label: "Alternativa 04" },
+        { name: "a5", label: "Alternativa 05" }
     ]
 
     const getFormInfo = (e) => {
@@ -27,6 +27,7 @@ function FormQuestion() {
         console.log(formInfo)
 
         // setFormInfo({})
+        // setFormAppears(false)
     }
 
     return (
@@ -67,7 +68,16 @@ function FormQuestion() {
                     onChange={getFormInfo}
                     value={formInfo.correct || ""}
                 >
-                    {[1, 2, 3, 4, 5].map(num => <MenuItem value={num} key={num}>{num}</MenuItem>)}
+                    {[
+                        { num: 1, value: "a1"}, 
+                        { num: 2, value: "a2"},
+                        { num: 3, value: "a3"},
+                        { num: 4, value: "a4"},
+                        { num: 5, value: "a5"}
+                    ].map(item => 
+                        <MenuItem value={item.value} key={item.num}>
+                            {item.num}
+                        </MenuItem>)}
                 </InputWrapper>
 
                 <ButtonsFormWrapper>
