@@ -11,17 +11,21 @@ function Content() {
         {
             id: "aaaa",
             enunciado: "Qual a questão certa?",
-            a1: "Alternativa 1",
-            a2: "Alternativa 2",
-            a3: "Alternativa 3",
-            correct: "a2"
+            alternatives: [
+                { alternativeNum: 1, alternativeText: "Alternativa 1" },
+                { alternativeNum: 2, alternativeText: "Alternativa 2" },
+                { alternativeNum: 3, alternativeText: "Alternativa 3" },
+            ],
+            correct: 2
         },
         {
-            id: "bbbb",
+            id: "bbbbbb",
             enunciado: "Qual a questão certa 2?",
-            a1: "Alternativa 1",
-            a2: "Alternativa 2",
-            correct: "a1"
+            alternatives: [
+                { alternativeNum: 1, alternativeText: "Alternativa 1" },
+                { alternativeNum: 2, alternativeText: "Alternativa 2" }
+            ],
+            correct: 1
         }
     ]
 
@@ -48,29 +52,11 @@ function Content() {
                                         {question.enunciado}
                                     </Typography>
                                     <ul>
-                                        {question.correct === "a1"
-                                            ? <LiColor>{question.a1}</LiColor>
-                                            : <li>{question.a1}</li>
-                                        }
-                                        {question.correct === "a2"
-                                            ? <LiColor>{question.a2}</LiColor>
-                                            : <li>{question.a2}</li>
-                                        }
-                                        {question.a3 &&
-                                            (question.correct === "a3"
-                                                ? <LiColor>{question.a3}</LiColor>
-                                                : <li>{question.a3}</li>
-                                            )}
-                                        {question.a4 &&
-                                            (question.correct === "a4"
-                                                ? <LiColor>{question.a4}</LiColor>
-                                                : <li>{question.a4}</li>
-                                            )}
-                                        {question.a5 &&
-                                            (question.correct === "a5"
-                                                ? <LiColor>{question.a5}</LiColor>
-                                                : <li>{question.a5}</li>
-                                            )}
+                                        {question.alternatives.map(item => (
+                                            item.alternativeNum === question.correct
+                                                ? <LiColor>{item.alternativeText}</LiColor>
+                                                : <li>{item.alternativeText}</li>
+                                        ))}
                                     </ul>
                                 </Question>
                             )
