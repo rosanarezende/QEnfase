@@ -10,20 +10,20 @@ function Content() {
     const questions = [
         {
             id: "aaaa",
-            enunciado: "Qual a questão certa?",
+            ask: "Qual a questão certa?",
             alternatives: [
-                { alternativeNum: 1, alternativeText: "Alternativa 1" },
-                { alternativeNum: 2, alternativeText: "Alternativa 2" },
-                { alternativeNum: 3, alternativeText: "Alternativa 3" },
+                { num: 1, text: "Alternativa 1" },
+                { num: 2, text: "Alternativa 2" },
+                { num: 3, text: "Alternativa 3" },
             ],
             correct: 2
         },
         {
             id: "bbbbbb",
-            enunciado: "Qual a questão certa 2?",
+            ask: "Qual a questão certa 2?",
             alternatives: [
-                { alternativeNum: 1, alternativeText: "Alternativa 1" },
-                { alternativeNum: 2, alternativeText: "Alternativa 2" }
+                { num: 1, text: "Alternativa 1" },
+                { num: 2, text: "Alternativa 2" }
             ],
             correct: 1
         }
@@ -33,7 +33,7 @@ function Content() {
         <Wrapper elevation={3}>
             <FormQuestion />
 
-            <Typography variant="h2" style={{ fontSize: "2.5em", fontWeight: "bold" }} align="center" color="primary">
+            <Typography variant="h2" color="primary" align="center" style={{ fontSize: "2.5em", fontWeight: "bold" }} >
                 Lista de questões
             </Typography>
 
@@ -48,14 +48,14 @@ function Content() {
                         {questions.map(question => {
                             return (
                                 <Question key={question.id}>
-                                    <Typography variant="h6" style={{backgroundColor: "#ff4a74", color: "#ffff", paddingLeft: "1vw"}}>
-                                        {question.enunciado}
+                                    <Typography variant="h6" style={{ backgroundColor: "#ff4a74", color: "#ffff", paddingLeft: "1vw" }}>
+                                        {question.ask}
                                     </Typography>
                                     <ul>
-                                        {question.alternatives.map(item => (
-                                            item.alternativeNum === question.correct
-                                                ? <LiColor>{item.alternativeText}</LiColor>
-                                                : <li>{item.alternativeText}</li>
+                                        {question.alternatives.map(alternative => (
+                                            alternative.num === question.correct
+                                                ? <LiColor>{alternative.text}</LiColor>
+                                                : <li>{alternative.text}</li>
                                         ))}
                                     </ul>
                                 </Question>

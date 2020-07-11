@@ -24,13 +24,11 @@ function FormQuestion() {
     const sendUserInfo = (e) => {
         e.preventDefault()
         const { ask, a1, a2, a3, a4, a5, correct } = formInfo
-        const alternatives = [
-            { alternativeNum: 1, alternativeText: a1 },
-            { alternativeNum: 2, alternativeText: a2 }
-        ]
-        a3 && alternatives.push({ alternativeNum: 3, alternativeText: a3 })
-        a4 && alternatives.push({ alternativeNum: 4, alternativeText: a4 })
-        a5 && alternatives.push({ alternativeNum: 5, alternativeText: a5 })
+        const alternatives = [{ num: 1, text: a1 }, { num: 2, text: a2 }]
+        a3 && alternatives.push({ num: 3, text: a3 })
+        a4 && alternatives.push({ num: 4, text: a4 })
+        a5 && alternatives.push({ num: 5, text: a5 })
+        // id vai ser aqui ou no back?
         const info = { ask, alternatives, correct }
         const findNum = alternatives.find(alternative => alternative.alternativeNum === correct)
         if(!findNum){
@@ -50,7 +48,7 @@ function FormQuestion() {
             <form onSubmit={sendUserInfo}>
                 <FormText>
                     Escreva a questão abaixo (com 2 a 5 alternativas):
-                    </FormText>
+                </FormText>
 
                 {createQuestion.map(field => (
                     <InputWrapper
@@ -68,7 +66,7 @@ function FormQuestion() {
 
                 <FormText>
                     Qual a alternativa correta?
-                    </FormText>
+                </FormText>
 
                 <InputWrapper
                     select
@@ -81,24 +79,16 @@ function FormQuestion() {
                     onChange={getFormInfo}
                     value={formInfo.correct || ""}
                 >
-                    {/* {[
-                        { num: 1, value: "a1"}, 
-                        { num: 2, value: "a2"},
-                        { num: 3, value: "a3"},
-                        { num: 4, value: "a4"},
-                        { num: 5, value: "a5"}
-                    ] */}
-                    {[1,2,3,4,5].map(item => 
-                        <MenuItem value={item} key={item}>{item}</MenuItem>)}
+                    {[1,2,3,4,5].map(item => <MenuItem value={item} key={item}>{item}</MenuItem>)}
                 </InputWrapper>
 
                 <ButtonsFormWrapper>
                     <ButtonCancel onClick={() => setFormAppears(false)} variant="outlined" color="secondary">
                         Cancelar
-                        </ButtonCancel>
+                    </ButtonCancel>
                     <Button type="submit" variant="contained" color="secondary">
                         Criar Questão
-                        </Button>
+                    </Button>
                 </ButtonsFormWrapper>
             </form>
             
@@ -106,7 +96,7 @@ function FormQuestion() {
             <CreateButtonWrapper>
                 <Button onClick={() => setFormAppears(true)} variant="contained" color="secondary">
                     Nova Questão
-                    </Button>
+                </Button>
             </CreateButtonWrapper>
 
     )
