@@ -1,0 +1,7 @@
+type Mutation {
+    newQuestion(input: QuestionInput!): Question
+    deleteQuestion(input: QuestionId!): Question
+    updateAlternativeText(input: AlternativeText!): Alternative
+    updateQuestionCorrect(input: QuestionCorrect!): Question
+    updateQuestionAsk(input: QuestionAsk!): Question
+}
