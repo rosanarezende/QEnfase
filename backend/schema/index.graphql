@@ -1,0 +1,3 @@
+#import Question, Alternative from 'Question.graphql'
+#import Query from 'Query.graphql'
+#import Mutation from 'Mutation.graphql'

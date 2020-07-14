@@ -1,0 +1,44 @@
+type Question {
+    id: Int
+    ask: String!
+    correct: Int!
+    alternatives: [Alternative]
+}
+
+input QuestionInput {
+    ask: String!
+    correct: Int!
+    alternatives: [AlternativeInput!]
+}
+
+input QuestionId {
+    id: Int!
+}
+
+input QuestionCorrect {
+    id: Int!
+    correct: Int!
+}
+
+input QuestionAsk {
+    id: Int!
+    ask: String!
+}
+
+type Alternative {
+    id: Int
+    num: Int!
+    text: String!
+    question_id: Int!
+}
+
+input AlternativeInput {
+    num: Int!
+    text: String!
+}
+
+input AlternativeText {
+    id: Int!
+    text: String!
+    question_id: Int!
+}

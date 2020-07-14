@@ -1,19 +1,20 @@
 {
-  "name": "backend",
+  "name": "tentativa-back",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rosanarezende/QEnfase.git"
-  },
-  "author": "Rosana Rezende",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/rosanarezende/QEnfase/issues"
-  },
-  "homepage": "https://github.com/rosanarezende/QEnfase#readme"
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-graphql": "^0.11.0",
+    "graphql": "^14.2.1",
+    "graphql-import": "^0.7.1",
+    "graphql-tools": "^6.0.12",
+    "knex": "^0.19.5",
+    "mysql": "^2.16.0"
+  }
 }
