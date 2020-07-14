@@ -15,26 +15,3 @@ export const Wrapper = styled(Paper)`
 export const QuestionsWrapper = styled.div`
     margin: 3vh 0;
 `
-
-export const Question = styled.div`
-    margin-bottom: 3vh;
-    position: relative;
-`
-
-export const QuestionTop = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1vh 1vw;
-    background-color: #ff4a74;
-    color: #ffff;
-    
-`
-
-export const Alternative = styled.div`
-    display: flex;
-    justify-content: space-between;
-    color: ${props => props.cor};
-    font-weight: ${props => props.weight};
-    padding: 0.5vh 2vw 0;
-`

@@ -1,9 +1,11 @@
 import React, { useState } from "react"
+import { api } from "../../utils/constants"
 
 import { CreateButtonWrapper, FormText, ButtonsFormWrapper, ButtonCancel, InputWrapper } from "./styles"
 import { Button, MenuItem } from "@material-ui/core"
 
-function FormQuestion() {
+function FormQuestion(props) {
+    const { getQuestions } = props
     const [formAppears, setFormAppears] = useState(false)
     const [formInfo, setFormInfo] = useState({})
 
@@ -28,16 +30,87 @@ function FormQuestion() {
         a3 && alternatives.push({ num: 3, text: a3 })
         a4 && alternatives.push({ num: 4, text: a4 })
         a5 && alternatives.push({ num: 5, text: a5 })
-        const info = { ask, correct, alternatives }
-        const findNum = alternatives.find(alternative => alternative.alternativeNum === correct)
+        
+        const findNum = alternatives.find(alternative => alternative.num === correct)
         if(!findNum){
             alert("Escolha uma 'alternativa correta' válida!")
             return
         }
+
+        let requestBody = {
+            query: `
+            mutation{
+                newQuestion(input: {
+                  ask: "${ask}"
+                  correct: ${correct}
+                  alternatives: [
+                      { num: 1 text: "${a1}" },
+                      { num: 2 text: "${a2}" }
+                  ]
+                }){ id }
+              }
+            `
+        }
+        if(a3) requestBody = {
+            query: `
+            mutation{
+                newQuestion(input: {
+                  ask: "${ask}"
+                  correct: ${correct}
+                  alternatives: [
+                      { num: 1 text: "${a1}" },
+                      { num: 2 text: "${a2}" },
+                      { num: 3 text: "${a3}" }
+                  ]
+                }){ id }
+              }
+            `
+        }
+        if(a4) requestBody = {
+            query: `
+            mutation{
+                newQuestion(input: {
+                  ask: "${ask}"
+                  correct: ${correct}
+                  alternatives: [
+                      { num: 1 text: "${a1}" },
+                      { num: 2 text: "${a2}" },
+                      { num: 3 text: "${a3}" },
+                      { num: 4 text: "${a4}" }
+                  ]
+                }){ id }
+              }
+            `
+        }
+        if(a5) requestBody = {
+            query: `
+            mutation{
+                newQuestion(input: {
+                  ask: "${ask}"
+                  correct: ${correct}
+                  alternatives: [
+                      { num: 1 text: "${a1}" },
+                      { num: 2 text: "${a2}" },
+                      { num: 3 text: "${a3}" },
+                      { num: 4 text: "${a4}" },
+                      { num: 5 text: "${a5}" }
+                  ]
+                }){ id }
+              }
+            `
+        }
+
+        api.post("/api", requestBody)
+            .then(res => {
+                console.log(res.data.data.newQuestion.id)
+                getQuestions()
+            })
+            .catch(err => console.log(err))
         
-        console.log(info)
-        // setFormInfo({})
-        // setFormAppears(false)
+        alert("Questão criada com sucesso!")
+
+        setFormInfo({})
+        setFormAppears(false)
     }
 
     return (
