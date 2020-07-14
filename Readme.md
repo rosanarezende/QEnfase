@@ -1,13 +1,9 @@
 # QEnfase | Case Software Engineer na EnfaseLabs
 
-:dash: [Deploy da Aplicação]()
-
-[Documentação da API]()
-
 <br>
 
 <p align="center">
-  <img  height='600' src=''>
+  <img  height='600' src='https://user-images.githubusercontent.com/45580434/87487079-1cea0b00-c613-11ea-8c6c-59cb1922091d.gif'>
 </p>
 
 ## Escopo
@@ -20,9 +16,7 @@ Contruir um sistema para gerenciar questões de múltipla escolha, em que seja p
 
 O desenvolvimento frontend foi realizado usando o framework [React](https://pt-br.reactjs.org/).
 
-No backend, a ferramenta escolhida para buscar informações foi o [GraphQL](https://graphql.org/)
-
-Para fazer a ligação entre essas duas ferramentas, optou-se pela biblioteca [Relay](https://relay.dev/).
+No backend, utilizou-se [Node.js](https://nodejs.org/en/) e [GraphQL](https://graphql.org/)
 
 <br>
 
