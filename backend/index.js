@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require("cors");
 const { graphqlHTTP } = require('express-graphql')
 const { makeExecutableSchema } = require('graphql-tools')
 const { importSchema } = require('graphql-import')
@@ -12,6 +13,7 @@ const schema = makeExecutableSchema({
 })
 
 const app = express()
+app.use(cors())
 app.use('/api', graphqlHTTP({
     schema,
     graphiql: true
