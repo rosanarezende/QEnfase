@@ -18,6 +18,8 @@ O desenvolvimento frontend foi realizado usando o framework [React](https://pt-b
 
 No backend, utilizou-se [Node.js](https://nodejs.org/en/) e [GraphQL](https://graphql.org/)
 
+Como banco de dados, optou-se por [MySQL](https://www.mysql.com/)
+
 <br>
 
 ## Como rodar a aplicação
@@ -29,7 +31,24 @@ No terminal, clone o projeto:
 git clone 
 ```
 
-Entre na pasta do projeto:
+Entre na pasta do frontend:
+```
+cd QEnfase/frontend
+```
+
+Instale as dependências:
+```
+npm install
+```
+
+Execute a aplicação:
+```
+npm start 
+```
+
+**FrontEnd**
+
+Entre na pasta do backend:
 ```
 cd QEnfase/frontend
 ```
