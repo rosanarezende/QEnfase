@@ -28,8 +28,7 @@ function FormQuestion() {
         a3 && alternatives.push({ num: 3, text: a3 })
         a4 && alternatives.push({ num: 4, text: a4 })
         a5 && alternatives.push({ num: 5, text: a5 })
-        // id vai ser aqui ou no back?
-        const info = { ask, alternatives, correct }
+        const info = { ask, correct, alternatives }
         const findNum = alternatives.find(alternative => alternative.alternativeNum === correct)
         if(!findNum){
             alert("Escolha uma 'alternativa correta' válida!")

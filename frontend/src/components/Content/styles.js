@@ -18,9 +18,23 @@ export const QuestionsWrapper = styled.div`
 
 export const Question = styled.div`
     margin-bottom: 3vh;
+    position: relative;
 `
 
-export const LiColor = styled.li`
-    color: #ff4a74;
-    font-weight: bolder;
+export const QuestionTop = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vh 1vw;
+    background-color: #ff4a74;
+    color: #ffff;
+    
+`
+
+export const Alternative = styled.div`
+    display: flex;
+    justify-content: space-between;
+    color: ${props => props.cor};
+    font-weight: ${props => props.weight};
+    padding: 0.5vh 2vw 0;
 `
