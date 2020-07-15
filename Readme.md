@@ -45,11 +45,12 @@ Execute a aplicação:
 ```
 node index.js 
 ```
+
 <br>
 
 **FrontEnd**
 
-Entre na pasta do backend:
+Entre na pasta do frontend:
 ```
 cd QEnfase/frontend
 ```
