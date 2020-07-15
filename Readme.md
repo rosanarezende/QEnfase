@@ -24,16 +24,16 @@ Como banco de dados, optou-se por [MySQL](https://www.mysql.com/)
 
 ## Como rodar a aplicação
 
-**FrontEnd**
+**BackendEnd**
 
 No terminal, clone o projeto:
 ```
 git clone 
 ```
 
-Entre na pasta do frontend:
+Entre na pasta do backend:
 ```
-cd QEnfase/frontend
+cd QEnfase/backend
 ```
 
 Instale as dependências:
@@ -43,8 +43,9 @@ npm install
 
 Execute a aplicação:
 ```
-npm start 
+node index.js 
 ```
+<br>
 
 **FrontEnd**
 
